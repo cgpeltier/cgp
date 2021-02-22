@@ -1,10 +1,8 @@
 Package: cgp
 Title: Personal functions 
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "Chad",
-           family = "Peltier",
-           role = c("aut", "cre"))
+Author: Chad Peltier 
+Maintainer: Chad Peltier <Chad.peltier@janes.com>
 Description: Personal functions for Chad Peltier
 License: `use_mit_license()`
 Encoding: UTF-8

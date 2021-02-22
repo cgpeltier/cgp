@@ -19,7 +19,7 @@
 
 write_janes <- function(data, file_name, file_type = "csv") {
 
-  if(file_type = "csv"){
+  if(file_type == "csv"){
 
     data %>%
       write.csv(file = paste0("./output/", file_name), na = "",  row.names = FALSE)
