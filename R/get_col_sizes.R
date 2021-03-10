@@ -1,8 +1,7 @@
-#' @title get_col_classes
-#' @description Returns View() with all column names and classes
+#' @title get_col_sizes
+#' @description Returns column sizes as MBs
 #'
 #' @param data Dataframe
-#' @param view Whether to automatically view results in RStudio
 
 #' @return Janes equipment data.
 #' @importFrom purrr imap_dfr
@@ -14,24 +13,6 @@
 #' @importFrom purrr map
 #' @export
 
-
-
-get_col_classes <- function(data, view = TRUE){
-  
-  if(view == TRUE){
-    
-    data %>%
-      imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
-                          str_c(collapse = ", "))) %>%
-      View("col_names")
-    
-  } else {
-     
-     data %>%
-       imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
-                           str_c(collapse = ", ")))}
-    
-}
 
 
 get_col_classes <- function(data, view = TRUE){
