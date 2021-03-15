@@ -3,7 +3,7 @@
 #'
 #' @param data Dataframe
 
-#' @return Janes equipment data.
+#' @return Sizes of columns in DF as MBs
 #' @importFrom purrr imap_dfr
 #' @importFrom tibble tibble
 #' @importFrom jsonlite fromJSON
@@ -14,8 +14,7 @@
 #' @export
 
 
-
-get_col_classes <- function(data, view = TRUE){
+weigh_cols <- function(data, view = TRUE){
   
   dplyr::summarize(data, dplyr::across(tidyselect::everything(), object.size)) %>% 
     tidyr::pivot_longer(tidyselect::everything()) %>%

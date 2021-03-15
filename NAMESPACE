@@ -3,6 +3,8 @@
 export(alert_me)
 export(get_col_classes)
 export(unnest_all)
+export(weigh_cols)
+export(weigh_environment)
 export(write_janes)
 importFrom(dplyr,rename_with)
 importFrom(janitor,clean_names)
