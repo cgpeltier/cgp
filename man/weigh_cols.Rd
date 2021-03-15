@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_col_sizes.R
 \name{weigh_cols}
 \alias{weigh_cols}
-\title{get_col_sizes}
+\title{weigh_cols}
 \usage{
 weigh_cols(data, view = TRUE)
 }

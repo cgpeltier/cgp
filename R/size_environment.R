@@ -1,4 +1,4 @@
-#' @title get_envir_sizes
+#' @title weigh_environment
 #' @description Returns size of each object in environment
 #'
 
@@ -13,9 +13,12 @@
 
 
 
-weigh_environment <- function(){
+weigh_environment <- function(env){
   
-  purrr::map_dfr(ls(), ~ tibble(.x) %>% dplyr::mutate(size = object.size(get(.x))))
+  purrr::map_dfr(env, ~ tibble::tibble("object" = .) %>% 
+                   dplyr::mutate(size = object.size(get(.x)),
+                                 size = as.numeric(size),
+                                 megabytes = size / 1000000))
   
 }
 

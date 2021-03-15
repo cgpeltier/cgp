@@ -2,9 +2,9 @@
 % Please edit documentation in R/size_environment.R
 \name{weigh_environment}
 \alias{weigh_environment}
-\title{get_envir_sizes}
+\title{weigh_environment}
 \usage{
-weigh_environment()
+weigh_environment(env)
 }
 \value{
 Environment object sizes

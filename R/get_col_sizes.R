@@ -1,4 +1,4 @@
-#' @title get_col_sizes
+#' @title weigh_cols
 #' @description Returns column sizes as MBs
 #'
 #' @param data Dataframe
@@ -16,9 +16,9 @@
 
 weigh_cols <- function(data, view = TRUE){
   
-  dplyr::summarize(data, dplyr::across(tidyselect::everything(), object.size)) %>% 
+  dplyr::summarize(data, dplyr::across(tidyselect::everything(), ~ object.size(.x))) %>% 
     tidyr::pivot_longer(tidyselect::everything()) %>%
-    dplyr::mutate(value = value/1000000) %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
     dplyr::rename(megabytes = value, col_name = name)
   
 }
