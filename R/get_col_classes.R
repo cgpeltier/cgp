@@ -21,27 +21,27 @@ get_col_classes <- function(data, view = TRUE){
   if(view == TRUE){
     
     data %>%
-      imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
+      purrr::imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
                           str_c(collapse = ", "))) %>%
       View("col_names")
     
   } else {
      
      data %>%
-       imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
+       purrr::imap_dfr(~ tibble(colname = .y, classes = class(.x) %>%
                            str_c(collapse = ", ")))}
     
 }
 
 
-get_col_classes <- function(data, view = TRUE){
-  
-  dplyr::summarize(data, dplyr::across(tidyselect::everything(), object.size)) %>% 
-    tidyr::pivot_longer(tidyselect::everything()) %>%
-    dplyr::mutate(value = value/1000000) %>%
-    dplyr::rename(megabytes = value, col_name = name)
-  
-}
+# get_col_classes <- function(data, view = TRUE){
+#   
+#   dplyr::summarize(data, dplyr::across(tidyselect::everything(), object.size)) %>% 
+#     tidyr::pivot_longer(tidyselect::everything()) %>%
+#     dplyr::mutate(value = value/1000000) %>%
+#     dplyr::rename(megabytes = value, col_name = name)
+#   
+# }
 
 
 #' @export
